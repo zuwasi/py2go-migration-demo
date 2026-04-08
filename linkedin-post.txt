@@ -1,0 +1,32 @@
+AI-powered code migration sounds great -- until the system doesn't work.
+
+Winder.ai recently published a field report on migrating a production Python codebase to Go using Claude Code. The code compiled. Tests passed. But the system returned completely wrong results.
+
+The root causes?
+
+- The AI rebuilt a deprecated database table from dead code references
+- Cross-cutting tasks blew the context window -- half the endpoints were missed
+- Orphaned code accumulated silently for days
+- No integration tests were ever run during migration
+
+We read this and thought: Amp can do this better.
+
+So we built it -- a complete, open-source migration scaffold that uses Amp's native tooling to prevent every failure from the article:
+
+- Pre-migration call-graph analysis -- dead symbols are filtered out before any Go code is written. No phantom features.
+- Parallel sub-agents -- cross-cutting tasks get one agent per endpoint, each in its own context window. Nothing missed.
+- Directory-scoped AGENTS.md -- Python translation rules at the root, Go coding standards scoped to the target directory. Right context, right files.
+- Automated dead-code sweeps -- after every single task, not as a manual afterthought.
+- Smoke tests at every phase -- the server starts, endpoints get hit, results are compared to the Python baseline.
+
+The scaffold is language-agnostic in structure -- swap the translation table for Java to Rust, TypeScript to Go, or any pair.
+
+GitHub: https://github.com/zuwasi/py2go-migration-demo
+Live presentation: https://zuwasi.github.io/py2go-migration-demo/presentation.html
+Original article: https://winder.ai/python-to-go-migration-with-claude-code/
+
+At ESL, we run code migration projects for enterprises -- combining AI automation with engineering oversight. If you are planning a migration, let's talk.
+
+https://eswlab.com/contact-us/
+
+#Ampcode #CodeMigration #PythonToGo #Golang #Python #AIEngineering #DevTools #OpenSource #ESL
