@@ -1,0 +1,22 @@
+# Go build artifacts
+go-target/bin/
+go-target/vendor/
+
+# Python
+python-source/__pycache__/
+python-source/*.pyc
+python-source/.venv/
+python-source/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Amp local state
+.amp/
